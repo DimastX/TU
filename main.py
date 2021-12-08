@@ -1,14 +1,8 @@
-import matplotlib.pyplot
-
-
-def plot():
-
-    data = (1, 2, 3, 4, 5)
-    fig, simple_chart = matplotlib.pyplot.subplots()
-
-    simple_chart.plot(data)
-    matplotlib.pyplot.show()
-
+import motion
 
 #main
-plot()
+r = 1
+x_c = abs(1 + r)
+y_c = - abs(1 + r)
+w = 1
+motion.body_init(x_c, y_c, r, w)
