@@ -78,6 +78,7 @@ def trajectory(time, dt, body, w, n):
     #print(data[i][0][0])
     #ax.legend()
     plt.show()
+    #plt.savefig('plots/trajectory' + '.png', format='png', dpi=1200)
 
 
 def velocity_fields(time, dt, border, w):
