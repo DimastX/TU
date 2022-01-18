@@ -87,6 +87,8 @@ def velocity_fields(time, dt, border, w):
     a = np.linspace(-border, border, 2 * border + 1)
     x_k, y_k = np.meshgrid(a, a)
     for n in range (int(time/dt)):
+        plt.figure(n)
+        plt.suptitle('t = ' + str(t))
         points = []
         for i in range(2 * border + 1):
             for j in range(2 * border + 1):
@@ -94,6 +96,19 @@ def velocity_fields(time, dt, border, w):
                 y = y_k[i, j]
                 points.append(model.Point(k, x, x, x, x, f_x(t, x), f_y(t, y, w), t))
                 k += 1
+                plt.subplot(1, 2, 1)
+                plt.quiver(x, y, f_x(t, x), f_y(t, y, w))
         vf.append(model.Body(points))
+        for p in range(1, 4):
+            for q in range(1, 4):
+                x = np.linspace(-4, -0.1, 100)
+                d = math.exp(t) / math.log(t + 1)
+                c = q * (p ** d)
+                y = -c * ((-x) ** (-d))
+                plt.subplot(1, 2, 2)
+                plt.axis([-4, 4, -4, 4])
+                plt.plot(x, y)
         t += dt
+        #plt.show()
+        plt.savefig('plots/velocity_fields' + str(n) + '.png', format='png', dpi=1200)
     return vf
