@@ -32,6 +32,21 @@ class BodyT:
         self.prev_body_t = None
 
 
+class PointS:
+    def __init__(self, number, coordinate_x, coordinate_y, velocity_x, velocity_y, time):
+        self.number = number
+        self.coordinate_x = coordinate_x
+        self.coordinate_y = coordinate_y
+        self.velocity_x = velocity_x
+        self.velocity_y = velocity_y
+        self.time = time
+
+
+class Space:
+    def __init__(self, pointsS):
+        self.pointsS = pointsS
+
+
 class DoublyLinkedList:
     def __init__(self):
         self.start_body = None
